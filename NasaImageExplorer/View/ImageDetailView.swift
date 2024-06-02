@@ -20,7 +20,9 @@ class ImageDetailView: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setupView()
-        setupBindings()
+        Task {
+            await setupBindings()
+        }
     }
 
     required init?(coder: NSCoder) {
@@ -44,11 +46,25 @@ class ImageDetailView: UIViewController {
         ])
     }
 
-    private func setupBindings() {
-        imageView.image = UIImage(data: try! Data(contentsOf: viewModel.image.imageURL))
+    private func setupBindings() async {
+        if let data = await loadData(from: viewModel.image.imageURL) {
+            DispatchQueue.main.async {
+                self.imageView.image = UIImage(data: data)
+            }
+        }
         titleLabel.text = viewModel.image.title
         descriptionLabel.text = viewModel.image.description
         photographerLabel.text = viewModel.image.photographer
         locationLabel.text = viewModel.image.location
+    }
+
+    private func loadData(from url: URL) async -> Data? {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            return data
+        } catch {
+            print("Failed to load image data: \(error)")
+            return nil
+        }
     }
 }
