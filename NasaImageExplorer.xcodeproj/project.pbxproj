@@ -10,12 +10,21 @@
 		260A85152C0D2C20000E93C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85142C0D2C20000E93C7 /* AppDelegate.swift */; };
 		260A85172C0D2C20000E93C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85162C0D2C20000E93C7 /* SceneDelegate.swift */; };
 		260A85192C0D2C20000E93C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85182C0D2C20000E93C7 /* ViewController.swift */; };
-		260A851C2C0D2C20000E93C7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 260A851B2C0D2C20000E93C7 /* Base */; };
 		260A851E2C0D2C22000E93C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 260A851D2C0D2C22000E93C7 /* Assets.xcassets */; };
 		260A85212C0D2C22000E93C7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 260A85202C0D2C22000E93C7 /* Base */; };
 		260A852C2C0D2C23000E93C7 /* NasaImageExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A852B2C0D2C23000E93C7 /* NasaImageExplorerTests.swift */; };
 		260A85362C0D2C23000E93C7 /* NasaImageExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85352C0D2C23000E93C7 /* NasaImageExplorerUITests.swift */; };
 		260A85382C0D2C23000E93C7 /* NasaImageExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85372C0D2C23000E93C7 /* NasaImageExplorerUITestsLaunchTests.swift */; };
+		260A854B2C0D2E48000E93C7 /* NasaImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A854A2C0D2E48000E93C7 /* NasaImage.swift */; };
+		260A854D2C0D2E8F000E93C7 /* NasaImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A854C2C0D2E8F000E93C7 /* NasaImageResponse.swift */; };
+		260A854F2C0D2F1B000E93C7 /* NasaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A854E2C0D2F1B000E93C7 /* NasaAPIService.swift */; };
+		260A85512C0D2F7A000E93C7 /* ImageGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85502C0D2F7A000E93C7 /* ImageGridViewModel.swift */; };
+		260A85532C0D2FA2000E93C7 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85522C0D2FA2000E93C7 /* ImageDetailViewModel.swift */; };
+		260A85552C0D306E000E93C7 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85542C0D306E000E93C7 /* SearchBarView.swift */; };
+		260A85572C0D3131000E93C7 /* ImageGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85562C0D3131000E93C7 /* ImageGridCell.swift */; };
+		260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85582C0D319B000E93C7 /* ImageGridView.swift */; };
+		260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */; };
+		260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855C2C0D31F7000E93C7 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +49,6 @@
 		260A85142C0D2C20000E93C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		260A85162C0D2C20000E93C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		260A85182C0D2C20000E93C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		260A851B2C0D2C20000E93C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		260A851D2C0D2C22000E93C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		260A85202C0D2C22000E93C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		260A85222C0D2C22000E93C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +57,16 @@
 		260A85312C0D2C23000E93C7 /* NasaImageExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NasaImageExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		260A85352C0D2C23000E93C7 /* NasaImageExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageExplorerUITests.swift; sourceTree = "<group>"; };
 		260A85372C0D2C23000E93C7 /* NasaImageExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		260A854A2C0D2E48000E93C7 /* NasaImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImage.swift; sourceTree = "<group>"; };
+		260A854C2C0D2E8F000E93C7 /* NasaImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageResponse.swift; sourceTree = "<group>"; };
+		260A854E2C0D2F1B000E93C7 /* NasaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAPIService.swift; sourceTree = "<group>"; };
+		260A85502C0D2F7A000E93C7 /* ImageGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridViewModel.swift; sourceTree = "<group>"; };
+		260A85522C0D2FA2000E93C7 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
+		260A85542C0D306E000E93C7 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		260A85562C0D3131000E93C7 /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
+		260A85582C0D319B000E93C7 /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
+		260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		260A855C2C0D31F7000E93C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +117,15 @@
 		260A85132C0D2C20000E93C7 /* NasaImageExplorer */ = {
 			isa = PBXGroup;
 			children = (
-				260A85142C0D2C20000E93C7 /* AppDelegate.swift */,
+				260A85442C0D2D65000E93C7 /* View */,
+				260A85452C0D2D74000E93C7 /* ViewModel */,
+				260A85462C0D2D84000E93C7 /* Model */,
+				260A85472C0D2D92000E93C7 /* Network */,
+				260A85482C0D2D99000E93C7 /* Utility */,
+				260A85492C0D2DA1000E93C7 /* Resources */,
 				260A85162C0D2C20000E93C7 /* SceneDelegate.swift */,
+				260A85142C0D2C20000E93C7 /* AppDelegate.swift */,
 				260A85182C0D2C20000E93C7 /* ViewController.swift */,
-				260A851A2C0D2C20000E93C7 /* Main.storyboard */,
-				260A851D2C0D2C22000E93C7 /* Assets.xcassets */,
-				260A851F2C0D2C22000E93C7 /* LaunchScreen.storyboard */,
 				260A85222C0D2C22000E93C7 /* Info.plist */,
 			);
 			path = NasaImageExplorer;
@@ -125,6 +146,60 @@
 				260A85372C0D2C23000E93C7 /* NasaImageExplorerUITestsLaunchTests.swift */,
 			);
 			path = NasaImageExplorerUITests;
+			sourceTree = "<group>";
+		};
+		260A85442C0D2D65000E93C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				260A85542C0D306E000E93C7 /* SearchBarView.swift */,
+				260A85562C0D3131000E93C7 /* ImageGridCell.swift */,
+				260A85582C0D319B000E93C7 /* ImageGridView.swift */,
+				260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		260A85452C0D2D74000E93C7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				260A85502C0D2F7A000E93C7 /* ImageGridViewModel.swift */,
+				260A85522C0D2FA2000E93C7 /* ImageDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		260A85462C0D2D84000E93C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				260A854A2C0D2E48000E93C7 /* NasaImage.swift */,
+				260A854C2C0D2E8F000E93C7 /* NasaImageResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		260A85472C0D2D92000E93C7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				260A854E2C0D2F1B000E93C7 /* NasaAPIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		260A85482C0D2D99000E93C7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				260A855C2C0D31F7000E93C7 /* Extensions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		260A85492C0D2DA1000E93C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				260A851F2C0D2C22000E93C7 /* LaunchScreen.storyboard */,
+				260A851D2C0D2C22000E93C7 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +308,6 @@
 			files = (
 				260A851E2C0D2C22000E93C7 /* Assets.xcassets in Resources */,
 				260A85212C0D2C22000E93C7 /* Base in Resources */,
-				260A851C2C0D2C20000E93C7 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +332,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				260A854D2C0D2E8F000E93C7 /* NasaImageResponse.swift in Sources */,
+				260A85552C0D306E000E93C7 /* SearchBarView.swift in Sources */,
+				260A854F2C0D2F1B000E93C7 /* NasaAPIService.swift in Sources */,
+				260A85572C0D3131000E93C7 /* ImageGridCell.swift in Sources */,
+				260A854B2C0D2E48000E93C7 /* NasaImage.swift in Sources */,
+				260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */,
 				260A85192C0D2C20000E93C7 /* ViewController.swift in Sources */,
 				260A85152C0D2C20000E93C7 /* AppDelegate.swift in Sources */,
+				260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */,
+				260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */,
 				260A85172C0D2C20000E93C7 /* SceneDelegate.swift in Sources */,
+				260A85512C0D2F7A000E93C7 /* ImageGridViewModel.swift in Sources */,
+				260A85532C0D2FA2000E93C7 /* ImageDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		260A851A2C0D2C20000E93C7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				260A851B2C0D2C20000E93C7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		260A851F2C0D2C22000E93C7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -447,7 +523,7 @@
 				INFOPLIST_FILE = NasaImageExplorer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +551,7 @@
 				INFOPLIST_FILE = NasaImageExplorer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

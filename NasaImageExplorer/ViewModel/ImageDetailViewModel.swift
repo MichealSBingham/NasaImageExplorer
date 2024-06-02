@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+@MainActor
+class ImageDetailViewModel: ObservableObject {
+    @Published var image: NasaImage
+
+    init(image: NasaImage) {
+        self.image = image
+    }
+}
