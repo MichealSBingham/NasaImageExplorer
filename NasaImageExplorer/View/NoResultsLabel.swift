@@ -20,6 +20,7 @@ class NoResultsLabel: UILabel {
 
     private func setupLabel() {
         text = "No search results found."
+        textColor = .white
         textAlignment = .center
         font = UIFont.systemFont(ofSize: 18)
         isHidden = true

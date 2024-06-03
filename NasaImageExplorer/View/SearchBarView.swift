@@ -23,6 +23,7 @@ class SearchBarView: UIView {
         addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "Search by title, photographer, or location"
+        searchBar.backgroundColor = .black
         NSLayoutConstraint.activate([
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),

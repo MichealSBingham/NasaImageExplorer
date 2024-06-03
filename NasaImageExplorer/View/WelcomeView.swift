@@ -15,6 +15,7 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.text = "NASA Image Explorer"
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,6 +31,7 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.text = "Explore the universe through NASA's vast image library."
         label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

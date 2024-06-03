@@ -33,7 +33,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
     }
 
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
 
         // Welcome view
         welcomeView = WelcomeView()
@@ -46,11 +46,13 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
 
         searchBarView = SearchBarView()
         searchBarView.searchBar.delegate = self
+        customizeSearchBarAppearance(searchBar: searchBarView.searchBar)
         view.addSubview(searchBarView)
 
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 100)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .black
         collectionView.register(ImageGridCell.self, forCellWithReuseIdentifier: ImageGridCell.reuseIdentifier)
         collectionView.delegate = self
         view.addSubview(collectionView)
@@ -164,6 +166,27 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
     }
     
     
+    
+    private func customizeSearchBarAppearance(searchBar: UISearchBar) {
+        searchBar.barTintColor = .black
+        searchBar.backgroundImage = UIImage()
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        searchBar.searchTextField.backgroundColor = .black
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: searchBar.placeholder ?? "",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        searchBar.searchTextField.layer.cornerRadius = 10
+        searchBar.searchTextField.clipsToBounds = true
+        
+        // Change the search icon color
+        if let searchIconView = searchBar.searchTextField.leftView as? UIImageView {
+            searchIconView.image = searchIconView.image?.withRenderingMode(.alwaysTemplate)
+            searchIconView.tintColor = .white
+        }
+    }
+
    
 
     // UISearchBarDelegate

@@ -31,7 +31,7 @@ class ImageDetailView: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
 
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -53,9 +53,13 @@ class ImageDetailView: UIViewController {
     private func setupBindings() async {
         await loadImage()
         titleLabel.text = viewModel.image.title
+        titleLabel.textColor = .white
         descriptionLabel.text = viewModel.image.description
+        descriptionLabel.textColor = .white
         photographerLabel.text = viewModel.image.photographer
+        photographerLabel.textColor = .white
         locationLabel.text = viewModel.image.location
+        locationLabel.textColor = .white
     }
 
     private func loadImage() async {
