@@ -22,6 +22,7 @@ class SearchBarView: UIView {
     private func setupView() {
         addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.placeholder = "Search by title, photographer, or location"
         NSLayoutConstraint.activate([
             searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),

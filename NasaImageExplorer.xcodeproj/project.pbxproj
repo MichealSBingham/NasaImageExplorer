@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		260A85152C0D2C20000E93C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85142C0D2C20000E93C7 /* AppDelegate.swift */; };
 		260A85172C0D2C20000E93C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85162C0D2C20000E93C7 /* SceneDelegate.swift */; };
-		260A85192C0D2C20000E93C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85182C0D2C20000E93C7 /* ViewController.swift */; };
 		260A851E2C0D2C22000E93C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 260A851D2C0D2C22000E93C7 /* Assets.xcassets */; };
 		260A85212C0D2C22000E93C7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 260A85202C0D2C22000E93C7 /* Base */; };
 		260A852C2C0D2C23000E93C7 /* NasaImageExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A852B2C0D2C23000E93C7 /* NasaImageExplorerTests.swift */; };
@@ -25,6 +24,13 @@
 		260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85582C0D319B000E93C7 /* ImageGridView.swift */; };
 		260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */; };
 		260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855C2C0D31F7000E93C7 /* Extensions.swift */; };
+		260A855F2C0E18BE000E93C7 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855E2C0E18BE000E93C7 /* DevelopmentViewController.swift */; };
+		26B3AC572C0E474F0002408A /* ImageGridViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC562C0E474F0002408A /* ImageGridViewModelTests.swift */; };
+		26B3AC592C0E48410002408A /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC582C0E48410002408A /* MockURLSession.swift */; };
+		26B3AC5B2C0E48600002408A /* ImageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC5A2C0E48600002408A /* ImageServiceTests.swift */; };
+		26B3AC5D2C0E4B3F0002408A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */; };
+		26B3AC5F2C0E726F0002408A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC5E2C0E726F0002408A /* WelcomeView.swift */; };
+		26B3AC612C0E740D0002408A /* NoResultsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC602C0E740D0002408A /* NoResultsLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +54,6 @@
 		260A85112C0D2C20000E93C7 /* NasaImageExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaImageExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		260A85142C0D2C20000E93C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		260A85162C0D2C20000E93C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		260A85182C0D2C20000E93C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		260A851D2C0D2C22000E93C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		260A85202C0D2C22000E93C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		260A85222C0D2C22000E93C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +72,13 @@
 		260A85582C0D319B000E93C7 /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		260A855C2C0D31F7000E93C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		260A855E2C0E18BE000E93C7 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
+		26B3AC562C0E474F0002408A /* ImageGridViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridViewModelTests.swift; sourceTree = "<group>"; };
+		26B3AC582C0E48410002408A /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
+		26B3AC5A2C0E48600002408A /* ImageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceTests.swift; sourceTree = "<group>"; };
+		26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		26B3AC5E2C0E726F0002408A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		26B3AC602C0E740D0002408A /* NoResultsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +137,8 @@
 				260A85492C0D2DA1000E93C7 /* Resources */,
 				260A85162C0D2C20000E93C7 /* SceneDelegate.swift */,
 				260A85142C0D2C20000E93C7 /* AppDelegate.swift */,
-				260A85182C0D2C20000E93C7 /* ViewController.swift */,
 				260A85222C0D2C22000E93C7 /* Info.plist */,
+				260A855E2C0E18BE000E93C7 /* DevelopmentViewController.swift */,
 			);
 			path = NasaImageExplorer;
 			sourceTree = "<group>";
@@ -135,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				260A852B2C0D2C23000E93C7 /* NasaImageExplorerTests.swift */,
+				26B3AC562C0E474F0002408A /* ImageGridViewModelTests.swift */,
+				26B3AC582C0E48410002408A /* MockURLSession.swift */,
+				26B3AC5A2C0E48600002408A /* ImageServiceTests.swift */,
 			);
 			path = NasaImageExplorerTests;
 			sourceTree = "<group>";
@@ -155,6 +170,8 @@
 				260A85562C0D3131000E93C7 /* ImageGridCell.swift */,
 				260A85582C0D319B000E93C7 /* ImageGridView.swift */,
 				260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */,
+				26B3AC5E2C0E726F0002408A /* WelcomeView.swift */,
+				26B3AC602C0E740D0002408A /* NoResultsLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				260A855C2C0D31F7000E93C7 /* Extensions.swift */,
+				26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -338,12 +356,15 @@
 				260A85572C0D3131000E93C7 /* ImageGridCell.swift in Sources */,
 				260A854B2C0D2E48000E93C7 /* NasaImage.swift in Sources */,
 				260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */,
-				260A85192C0D2C20000E93C7 /* ViewController.swift in Sources */,
 				260A85152C0D2C20000E93C7 /* AppDelegate.swift in Sources */,
 				260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */,
 				260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */,
+				260A855F2C0E18BE000E93C7 /* DevelopmentViewController.swift in Sources */,
+				26B3AC5F2C0E726F0002408A /* WelcomeView.swift in Sources */,
 				260A85172C0D2C20000E93C7 /* SceneDelegate.swift in Sources */,
 				260A85512C0D2F7A000E93C7 /* ImageGridViewModel.swift in Sources */,
+				26B3AC5D2C0E4B3F0002408A /* ImageCache.swift in Sources */,
+				26B3AC612C0E740D0002408A /* NoResultsLabel.swift in Sources */,
 				260A85532C0D2FA2000E93C7 /* ImageDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B3AC592C0E48410002408A /* MockURLSession.swift in Sources */,
+				26B3AC5B2C0E48600002408A /* ImageServiceTests.swift in Sources */,
+				26B3AC572C0E474F0002408A /* ImageGridViewModelTests.swift in Sources */,
 				260A852C2C0D2C23000E93C7 /* NasaImageExplorerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

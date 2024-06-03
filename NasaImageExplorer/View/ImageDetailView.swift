@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ImageDetailView: UIViewController {
     private let viewModel: ImageDetailViewModel
 
@@ -32,6 +33,9 @@ class ImageDetailView: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
 
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, descriptionLabel, photographerLabel, locationLabel])
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -47,24 +51,30 @@ class ImageDetailView: UIViewController {
     }
 
     private func setupBindings() async {
-        if let data = await loadData(from: viewModel.image.imageURL) {
-            DispatchQueue.main.async {
-                self.imageView.image = UIImage(data: data)
-            }
-        }
+        await loadImage()
         titleLabel.text = viewModel.image.title
         descriptionLabel.text = viewModel.image.description
         photographerLabel.text = viewModel.image.photographer
         locationLabel.text = viewModel.image.location
     }
 
-    private func loadData(from url: URL) async -> Data? {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            return data
-        } catch {
-            print("Failed to load image data: \(error)")
-            return nil
+    private func loadImage() async {
+        let url = viewModel.image.imageURL
+
+        if let cachedImage = ImageCache.shared.object(forKey: url.absoluteString as NSString) {
+            self.imageView.image = cachedImage
+        } else {
+            if let data = try? await fetchData(from: url), let image = UIImage(data: data) {
+                ImageCache.shared.setObject(image, forKey: url.absoluteString as NSString)
+                await MainActor.run {
+                    self.imageView.image = image
+                }
+            }
         }
+    }
+
+    private func fetchData(from url: URL) async throws -> Data {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return data
     }
 }

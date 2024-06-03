@@ -17,11 +17,13 @@ class ImageGridViewModel: ObservableObject {
     private var currentQuery = ""
 
     func searchImages(query: String) async {
+        print("searching images with query: \(query)")
         isLoading = true
         currentQuery = query
         currentPage = 1
         do {
             let images = try await nasaAPIService.fetchImages(query: query, page: currentPage)
+            print("the image count are: \(images.count)")
             self.images = images
         } catch {
             print("Error fetching images: \(error)")
@@ -40,6 +42,10 @@ class ImageGridViewModel: ObservableObject {
             print("Error fetching more images: \(error)")
         }
         isLoading = false
+    }
+    
+    func removeImages() {
+        images = []
     }
 }
 

@@ -24,6 +24,8 @@ class ImageGridCell: UICollectionViewCell {
     private func setupView() {
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -34,21 +36,23 @@ class ImageGridCell: UICollectionViewCell {
 
     func configure(with url: URL) {
         Task {
-            if let data = await loadData(from: url) {
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data)
+            if let cachedImage = ImageCache.shared.object(forKey: url.absoluteString as NSString) {
+                self.imageView.image = cachedImage
+            } else {
+                if let data = try? await fetchData(from: url) {
+                    if let image = UIImage(data: data) {
+                        ImageCache.shared.setObject(image, forKey: url.absoluteString as NSString)
+                        await MainActor.run {
+                            self.imageView.image = image
+                        }
+                    }
                 }
             }
         }
     }
 
-    private func loadData(from url: URL) async -> Data? {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            return data
-        } catch {
-            print("Failed to load image data: \(error)")
-            return nil
-        }
+    private func fetchData(from url: URL) async throws -> Data {
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return data
     }
 }

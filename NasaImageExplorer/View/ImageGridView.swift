@@ -9,10 +9,15 @@
 import UIKit
 import Combine
 
+
+
+
 class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDelegate {
     private let viewModel = ImageGridViewModel()
     private var collectionView: UICollectionView!
     private var searchBarView: SearchBarView!
+    private var noResultsLabel: NoResultsLabel!
+    private var welcomeView: WelcomeView!
     private var cancellables: Set<AnyCancellable> = []
     private var dataSource: UICollectionViewDiffableDataSource<Section, NasaImage>!
 
@@ -24,10 +29,20 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         super.viewDidLoad()
         setupViews()
         setupBindings()
+        updateUIForImages(viewModel.images)
     }
 
     private func setupViews() {
         view.backgroundColor = .white
+
+        // Welcome view
+        welcomeView = WelcomeView()
+        welcomeView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(welcomeView)
+
+        // No results label
+        noResultsLabel = NoResultsLabel()
+        view.addSubview(noResultsLabel)
 
         searchBarView = SearchBarView()
         searchBarView.searchBar.delegate = self
@@ -50,7 +65,13 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             collectionView.topAnchor.constraint(equalTo: searchBarView.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+            noResultsLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noResultsLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+
+            welcomeView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            welcomeView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
 
         configureDataSource()
@@ -76,14 +97,84 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
     }
 
     private func setupBindings() {
-        viewModel.$images.sink { [weak self] _ in
+        viewModel.$images.sink { [weak self] images in
             self?.applySnapshot()
+            self?.updateUIForImages(images)
         }.store(in: &cancellables)
     }
 
+    private func updateUIForImages(_ images: [NasaImage]) {
+        
+        
+        
+        //If no images + searchBar is empty, show welcome view
+        if images.isEmpty && searchBarView.searchBar.text?.isEmpty ?? true {
+            showWelcomeView()
+        }
+        
+        if images.isEmpty  && !(searchBarView.searchBar.text?.isEmpty ?? true) {
+            showNoResultsMessage()
+        }
+        
+        if !(images.isEmpty) &&  !(searchBarView.searchBar.text?.isEmpty ?? true)  {
+            showResults()
+        }
+        
+       
+        
+       
+    }
+
+    private func showWelcomeView() {
+        welcomeView.isHidden = false
+        noResultsLabel.isHidden = true
+        collectionView.isHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.welcomeView.alpha = 1.0
+        }
+    }
+
+    private func showNoResultsMessage() {
+        welcomeView.isHidden = true
+        noResultsLabel.isHidden = false
+        collectionView.isHidden = true
+        UIView.animate(withDuration: 0.3) {
+            self.noResultsLabel.alpha = 1.0
+        }
+    }
+
+    private func showResults() {
+        
+        welcomeView.isHidden = true
+        noResultsLabel.isHidden = true
+        collectionView.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.collectionView.alpha = 1.0
+        }
+    }
+    
+    private func hideWelcomeViewAndNoResultsMessage() {
+        print("hiding welcome view and no results")
+        welcomeView.isHidden = true
+        noResultsLabel.isHidden = true
+        collectionView.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.collectionView.alpha = 1.0
+        }
+    }
+    
+    
+   
+
     // UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchBar.text, !query.isEmpty else { return }
+        print("search bar clicked")
+        guard let query = searchBar.text, !query.isEmpty else {
+            print("updating UI")
+            updateUIForImages(viewModel.images)
+            return
+        }
+        print("searching \(searchBar.text)")
         Task {
             await viewModel.searchImages(query: query)
         }
@@ -92,9 +183,18 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
 
     // UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        
+        guard indexPath.item < viewModel.images.count else {
+            // Index is out of range, do nothing or show an error
+            return
+        }
+        
+
         let image = viewModel.images[indexPath.item]
         let detailViewModel = ImageDetailViewModel(image: image)
         let detailView = ImageDetailView(viewModel: detailViewModel)
+        
         navigationController?.pushViewController(detailView, animated: true)
     }
 

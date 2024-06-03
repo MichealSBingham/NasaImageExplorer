@@ -14,10 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {
-            // Do nothing; SceneDelegate handles window creation.
+            
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = UINavigationController(rootViewController: ImageGridView())
+            window?.rootViewController = UINavigationController(rootViewController: ImageGridView()) //DevelopmentViewController()
             window?.makeKeyAndVisible()
         }
         return true
