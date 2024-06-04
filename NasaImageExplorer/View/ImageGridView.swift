@@ -12,7 +12,7 @@ import Combine
 
 
 
-class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDelegate {
+class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UINavigationControllerDelegate {
     private let viewModel = ImageGridViewModel()
     private var collectionView: UICollectionView!
     private var searchBarView: SearchBarView!
@@ -20,6 +20,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
     private var welcomeView: WelcomeView!
     private var cancellables: Set<AnyCancellable> = []
     private var dataSource: UICollectionViewDiffableDataSource<Section, NasaImage>!
+    private let transition = CATransition()
 
     enum Section {
         case main
@@ -32,6 +33,8 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         updateUIForImages(viewModel.images)
         setupBackButtonAppearance()
         showSearchBarWithBounce()
+        navigationController?.delegate = self
+        configureTransition()
     }
 
     private func setupViews() {
@@ -264,7 +267,14 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         let detailViewModel = ImageDetailViewModel(image: image)
         let detailView = ImageDetailView(viewModel: detailViewModel)
         
-        navigationController?.pushViewController(detailView, animated: true)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = .fade
+        navigationController?.view.layer.add(transition, forKey: kCATransition)
+
+        navigationController?.pushViewController(detailView, animated: false)
+        
+        //navigationController?.pushViewController(detailView, animated: true)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -279,6 +289,20 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             }
         }
     }
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            if operation == .pop {
+                transition.subtype = .fromLeft
+                navigationController.view.layer.add(transition, forKey: kCATransition)
+            }
+            return nil
+        }
+    
+    
+    private func configureTransition() {
+            transition.duration = 0.3
+            transition.type = .fade
+        }
 }
 
 extension ImageGridView: UICollectionViewDataSource {
