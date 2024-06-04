@@ -133,11 +133,11 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             showWelcomeView()
         }
         
-        if images.isEmpty  && !(searchBarView.searchBar.text?.isEmpty ?? true) {
+        if images.isEmpty  && !(searchBarView.searchBar.text?.isEmpty ?? true) && !viewModel.isLoading {
             showNoResultsMessage()
         }
         
-        if !(images.isEmpty) &&  !(searchBarView.searchBar.text?.isEmpty ?? true)  {
+        if !(images.isEmpty) &&  !(searchBarView.searchBar.text?.isEmpty ?? true) && !viewModel.isLoading {
             showResults()
         }
         

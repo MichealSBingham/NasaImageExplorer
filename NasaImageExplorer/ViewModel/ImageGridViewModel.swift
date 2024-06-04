@@ -21,6 +21,9 @@ class ImageGridViewModel: ObservableObject {
         isLoading = true
         currentQuery = query
         currentPage = 1
+        
+        self.images = []
+        
         do {
             let images = try await nasaAPIService.fetchImages(query: query, page: currentPage)
            
