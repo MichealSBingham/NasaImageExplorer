@@ -31,6 +31,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         setupBindings()
         updateUIForImages(viewModel.images)
         setupBackButtonAppearance()
+        showSearchBarWithBounce()
     }
 
     private func setupViews() {
@@ -217,6 +218,22 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             updateUIForImages(viewModel.images)
         }
     }
+    
+    private func showSearchBarWithBounce() {
+        searchBarView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 1,
+                       delay: 0.5,
+                       usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 0.8,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.searchBarView.transform = .identity
+                       },
+                       completion: nil)
+    }
+
+   
+
 
     // UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
