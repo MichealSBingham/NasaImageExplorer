@@ -23,8 +23,12 @@ class ImageGridViewModel: ObservableObject {
         currentPage = 1
         do {
             let images = try await nasaAPIService.fetchImages(query: query, page: currentPage)
-            print("the image count are: \(images.count)")
-            self.images = images
+           
+            DispatchQueue.main.async{
+                self.images = images
+            }
+           
+            
         } catch {
             print("Error fetching images: \(error)")
         }
@@ -32,6 +36,9 @@ class ImageGridViewModel: ObservableObject {
     }
 
     func loadMoreImages() async {
+     
+        guard !currentQuery.isEmpty else { return }
+       
         guard !isLoading else { return }
         isLoading = true
         currentPage += 1
@@ -44,8 +51,6 @@ class ImageGridViewModel: ObservableObject {
         isLoading = false
     }
     
-    func removeImages() {
-        images = []
-    }
+   
 }
 

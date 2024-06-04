@@ -31,6 +31,7 @@
 		26B3AC5D2C0E4B3F0002408A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */; };
 		26B3AC5F2C0E726F0002408A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC5E2C0E726F0002408A /* WelcomeView.swift */; };
 		26B3AC612C0E740D0002408A /* NoResultsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC602C0E740D0002408A /* NoResultsLabel.swift */; };
+		26B3AC632C0E8A040002408A /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC622C0E8A040002408A /* DetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		26B3AC5E2C0E726F0002408A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		26B3AC602C0E740D0002408A /* NoResultsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsLabel.swift; sourceTree = "<group>"; };
+		26B3AC622C0E8A040002408A /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */,
 				26B3AC5E2C0E726F0002408A /* WelcomeView.swift */,
 				26B3AC602C0E740D0002408A /* NoResultsLabel.swift */,
+				26B3AC622C0E8A040002408A /* DetailInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				26B3AC5F2C0E726F0002408A /* WelcomeView.swift in Sources */,
 				260A85172C0D2C20000E93C7 /* SceneDelegate.swift in Sources */,
 				260A85512C0D2F7A000E93C7 /* ImageGridViewModel.swift in Sources */,
+				26B3AC632C0E8A040002408A /* DetailInfoView.swift in Sources */,
 				26B3AC5D2C0E4B3F0002408A /* ImageCache.swift in Sources */,
 				26B3AC612C0E740D0002408A /* NoResultsLabel.swift in Sources */,
 				260A85532C0D2FA2000E93C7 /* ImageDetailViewModel.swift in Sources */,

@@ -12,6 +12,7 @@ class NasaAPIService {
     private let baseURL = "https://images-api.nasa.gov/search"
 
     func fetchImages(query: String, page: Int) async throws -> [NasaImage] {
+       // print("fetching images from query: \(query) and page \(page)")
         guard var urlComponents = URLComponents(string: baseURL) else { throw URLError(.badURL) }
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: query),

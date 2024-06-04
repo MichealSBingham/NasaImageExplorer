@@ -41,7 +41,7 @@ class WelcomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
-        loadImage(from: URL(string: "https://cdn.mos.cms.futurecdn.net/baYs9AuHxx9QXeYBiMvSLU-1200-80.jpg.webp")!) // Replace with the actual URL
+        loadImage(from: URL(string: "https://cdn.mos.cms.futurecdn.net/baYs9AuHxx9QXeYBiMvSLU-1200-80.jpg.webp")!) 
     }
 
     required init?(coder: NSCoder) {

@@ -30,6 +30,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         setupViews()
         setupBindings()
         updateUIForImages(viewModel.images)
+        setupBackButtonAppearance()
     }
 
     private func setupViews() {
@@ -96,12 +97,16 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.images)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+        
     }
 
     private func setupBindings() {
         viewModel.$images.sink { [weak self] images in
-            self?.applySnapshot()
-            self?.updateUIForImages(images)
+            DispatchQueue.main.async{
+                self?.applySnapshot()
+                self?.updateUIForImages(images)
+            }
+            
         }.store(in: &cancellables)
     }
 
@@ -180,24 +185,40 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         searchBar.searchTextField.layer.cornerRadius = 10
         searchBar.searchTextField.clipsToBounds = true
         
-        // Change the search icon color
+        // search icon color
         if let searchIconView = searchBar.searchTextField.leftView as? UIImageView {
             searchIconView.image = searchIconView.image?.withRenderingMode(.alwaysTemplate)
             searchIconView.tintColor = .white
         }
     }
 
-   
+    private func setupBackButtonAppearance() {
+            let backButtonAppearance = UIBarButtonItemAppearance()
+            backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+            let backButton = UIBarButtonItemAppearance()
+            backButton.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .black
+            appearance.backButtonAppearance = backButton
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.tintColor = .white
+        }
+    
 
     // UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("search bar clicked")
+        
         guard let query = searchBar.text, !query.isEmpty else {
-            print("updating UI")
+           
             updateUIForImages(viewModel.images)
             return
         }
-        print("searching \(searchBar.text)")
+        
         Task {
             await viewModel.searchImages(query: query)
         }
@@ -222,6 +243,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let height = scrollView.frame.size.height
