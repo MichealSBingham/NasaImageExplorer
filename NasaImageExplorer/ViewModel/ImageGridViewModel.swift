@@ -17,7 +17,7 @@ class ImageGridViewModel: ObservableObject {
     private var currentQuery = ""
 
     func searchImages(query: String) async {
-        print("searching images with query: \(query)")
+       
         isLoading = true
         currentQuery = query
         currentPage = 1
