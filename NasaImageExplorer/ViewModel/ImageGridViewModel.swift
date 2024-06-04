@@ -24,9 +24,10 @@ class ImageGridViewModel: ObservableObject {
         do {
             let images = try await nasaAPIService.fetchImages(query: query, page: currentPage)
            
-            DispatchQueue.main.async{
+            Task{ @MainActor in
                 self.images = images
             }
+            
            
             
         } catch {
@@ -51,6 +52,7 @@ class ImageGridViewModel: ObservableObject {
         isLoading = false
     }
     
+   
    
 }
 

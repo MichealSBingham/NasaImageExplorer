@@ -23,7 +23,6 @@
 		260A85572C0D3131000E93C7 /* ImageGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85562C0D3131000E93C7 /* ImageGridCell.swift */; };
 		260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A85582C0D319B000E93C7 /* ImageGridView.swift */; };
 		260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */; };
-		260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855C2C0D31F7000E93C7 /* Extensions.swift */; };
 		260A855F2C0E18BE000E93C7 /* DevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260A855E2C0E18BE000E93C7 /* DevelopmentViewController.swift */; };
 		26B3AC572C0E474F0002408A /* ImageGridViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC562C0E474F0002408A /* ImageGridViewModelTests.swift */; };
 		26B3AC592C0E48410002408A /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B3AC582C0E48410002408A /* MockURLSession.swift */; };
@@ -72,7 +71,6 @@
 		260A85562C0D3131000E93C7 /* ImageGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridCell.swift; sourceTree = "<group>"; };
 		260A85582C0D319B000E93C7 /* ImageGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridView.swift; sourceTree = "<group>"; };
 		260A855A2C0D31C7000E93C7 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
-		260A855C2C0D31F7000E93C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		260A855E2C0E18BE000E93C7 /* DevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentViewController.swift; sourceTree = "<group>"; };
 		26B3AC562C0E474F0002408A /* ImageGridViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGridViewModelTests.swift; sourceTree = "<group>"; };
 		26B3AC582C0E48410002408A /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 		260A85482C0D2D99000E93C7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				260A855C2C0D31F7000E93C7 /* Extensions.swift */,
 				26B3AC5C2C0E4B3F0002408A /* ImageCache.swift */,
 			);
 			path = Utility;
@@ -360,7 +357,6 @@
 				260A854B2C0D2E48000E93C7 /* NasaImage.swift in Sources */,
 				260A855B2C0D31C7000E93C7 /* ImageDetailView.swift in Sources */,
 				260A85152C0D2C20000E93C7 /* AppDelegate.swift in Sources */,
-				260A855D2C0D31F7000E93C7 /* Extensions.swift in Sources */,
 				260A85592C0D319B000E93C7 /* ImageGridView.swift in Sources */,
 				260A855F2C0E18BE000E93C7 /* DevelopmentViewController.swift in Sources */,
 				26B3AC5F2C0E726F0002408A /* WelcomeView.swift in Sources */,

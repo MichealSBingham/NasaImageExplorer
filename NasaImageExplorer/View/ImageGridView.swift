@@ -102,10 +102,11 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
 
     private func setupBindings() {
         viewModel.$images.sink { [weak self] images in
-            DispatchQueue.main.async{
+            Task{ @MainActor in
                 self?.applySnapshot()
                 self?.updateUIForImages(images)
             }
+               
             
         }.store(in: &cancellables)
     }
@@ -132,6 +133,7 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
        
     }
 
+    
     private func showWelcomeView() {
         welcomeView.isHidden = false
         noResultsLabel.isHidden = true
@@ -209,6 +211,12 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             navigationController?.navigationBar.tintColor = .white
         }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty{
+            viewModel.images.removeAll()
+            updateUIForImages(viewModel.images)
+        }
+    }
 
     // UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
