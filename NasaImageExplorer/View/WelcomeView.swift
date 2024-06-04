@@ -30,10 +30,13 @@ class WelcomeView: UIView {
     private let welcomeTextLabel: UILabel = {
         let label = UILabel()
         label.text = "Explore the universe through NASA's vast image library."
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,6 +56,8 @@ class WelcomeView: UIView {
         addSubview(nasaImageView)
         addSubview(welcomeTextLabel)
 
+       
+        
         NSLayoutConstraint.activate([
             nasaImageView.topAnchor.constraint(equalTo: topAnchor),
             nasaImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -67,6 +72,7 @@ class WelcomeView: UIView {
             welcomeTextLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             welcomeTextLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
     }
 
     private func loadImage(from url: URL) {
@@ -88,4 +94,6 @@ class WelcomeView: UIView {
         let (data, _) = try await URLSession.shared.data(from: url)
         return data
     }
+    
+    
 }

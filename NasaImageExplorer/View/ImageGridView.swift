@@ -35,7 +35,16 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
         showSearchBarWithBounce()
         navigationController?.delegate = self
         configureTransition()
+        
+        // keyboard notifications
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+   
 
     private func setupViews() {
         view.backgroundColor = .black
@@ -237,8 +246,9 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
 
    
 
+   
 
-    // UISearchBarDelegate
+ 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         guard let query = searchBar.text, !query.isEmpty else {
@@ -303,6 +313,29 @@ class ImageGridView: UIViewController, UISearchBarDelegate, UICollectionViewDele
             transition.duration = 0.3
             transition.type = .fade
         }
+    
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+
+        // Move the welcome view up by the height of the keyboard
+        UIView.animate(withDuration: 0.3) {
+            self.welcomeView.transform = CGAffineTransform(translationX: 0, y: -keyboardFrame.height / 3)
+        }
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        // Move the welcome view back to its original position
+        UIView.animate(withDuration: 0.3) {
+            self.welcomeView.transform = .identity
+        }
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
 }
 
 extension ImageGridView: UICollectionViewDataSource {
